@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Productos</title>
+</head>
+<body>
+	<h1>Compra Productos</h1>
+	<form action="#" th:action="@{/formulario}" th:object="${compra}" method="post">
+		<p>
+			Elegir Producto: 
+			<select th:field="*{id}">
+				<option  th:each="producto: ${lista}"  th:value='${producto.getId()}' th:text="${producto.getNombre()}"/>
+			</select>
+			
+		</p>
+		<p>
+			Cantidad: <input type="number" th:field="*{cantidad}">
+		</p>
+
+		<p>
+			<input type="submit" value="Enviar"><input type="reset"
+				value="borrar">
+		</p>
+
+	</form>
+	
+</body>
+</html>
